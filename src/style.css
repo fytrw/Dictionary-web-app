@@ -29,6 +29,12 @@ body {
     background-color: var(--bg-color);
 }
 
+body>div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .wrapper {
     width: 740px;
     margin-top: 60px;
@@ -115,15 +121,15 @@ header {
     height: 36px; 
 }
 
-input[type=checkbox] {
+.dark-mode input[type=checkbox] {
 	height: 0;
 	width: 0;
 	visibility: hidden;
 }
-input {
+.dark-mode input {
     font-family: var(--font-family);
 }
-label {
+.dark-mode label {
 	cursor: pointer;
 	text-indent: -9999px;
 	width: 40px;
@@ -135,7 +141,7 @@ label {
     margin-right: 20px;
 }
 
-label:after {
+.dark-mode label:after {
 	content: '';
 	position: absolute;
 	top: 3px;
@@ -147,11 +153,11 @@ label:after {
 	transition: 0.2s linear;
 }
 
-input:checked + label {
+.dark-mode input:checked + label {
 	background: #A445ED; 
 }
 
-input:checked + label:after {
+.dark-mode input:checked + label:after {
 	left: calc(100% - 3px);
 	transform: translateX(-100%);
 }
@@ -168,6 +174,17 @@ input:checked + label:after {
     width: 100%;
     margin-bottom: 45px;
     position: relative;
+}
+
+.visually-hidden {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    padding:0 !important;
+    border:0 !important;
+    height: 1px !important; 
+    width: 1px !important; 
+    overflow: hidden;
 }
 
 .search-bar input {
@@ -408,9 +425,6 @@ main {
 }
 
 @media (max-width: 700px) {
-    body>div {
-        width: 100%;
-    }
     .wrapper {
         padding: 24px;
         margin: 0;

@@ -18,8 +18,9 @@ function SearchBar({inputValue, setInputValue, setSearchTerm}){
 
     return(
         <form className={emptyInput ? 'search-bar error-empty' : 'search-bar'} onSubmit={handleSubmit} >
-            <input ref={inputRef} type="text" value={inputValue} onChange={e => {setInputValue(e.target.value)}}/>
-            <button className="search-loop">
+            <label htmlFor="search-bar" className="visually-hidden">Search:</label>
+            <input id="search-bar" ref={inputRef} type="text" value={inputValue} onChange={e => {setInputValue(e.target.value)}}/>
+            <button className="search-loop" aria-label="Search">
                 <SearchLoop />
             </button>
             {emptyInput && <p className="error-empty-text">Whoops, can’t be empty…</p>}
